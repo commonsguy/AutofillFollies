@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item
+    android:id="@+id/invisible"
+    android:showAsAction="never"
+    android:title="@string/menu_invisible" />
+<!--
+  <item
+    android:id="@+id/gone"
+    android:showAsAction="never"
+    android:title="@string/menu_gone" />
+-->
+  <item
+    android:id="@+id/tiny"
+    android:showAsAction="never"
+    android:title="@string/menu_tiny" />
+  <item
+    android:id="@+id/zero"
+    android:showAsAction="never"
+    android:title="@string/menu_zero" />
+  <item
+    android:id="@+id/offscreen"
+    android:showAsAction="never"
+    android:title="@string/menu_off_screen" />
+  <item
+    android:id="@+id/behind"
+    android:showAsAction="never"
+    android:title="@string/menu_behind" />
+</menu>
