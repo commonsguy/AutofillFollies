@@ -69,12 +69,6 @@ get filled in
 
 13. Repeat steps 11 and 12 for the other scenarios, as desired
 
-## For More Information
-
-This blog post goes into greater detail about the security flaw and what
-Google wants autofill service developers to do to try to limit the scope
-of the flaw.
-
 If you encounter problems with the demonstration, file an issue in this project. 
 
 ## Licenses
