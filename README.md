@@ -1,6 +1,8 @@
 This repository contains code and instructions for reproducing a security
 flaw with Android 8.0's autofill implementation. Simply put: an improperly-written
-autofill service can leak data to malicious activities.
+autofill service can leak data to malicious activities. A longer explanation
+of what is going on can be found in
+[the associated white paper](https://github.com/commonsguy/AutofillFollies/blob/master/WHITE_PAPER.md).
 
 This repository contains two separate code bases:
 
