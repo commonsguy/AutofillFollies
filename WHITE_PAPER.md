@@ -323,7 +323,7 @@ triggered the research in this area.
 - 24 March 2017: Mark Murphy files [a security issue](https://issuetracker.google.com/issues/37140582) with Google
 - 23 May 2017: Mark Murphy reproduces the flaw on O Developer Preview 2 and updates the issue with this information
 - 12 June 2017: Mark Murphy reproduces the flaw on O Developer Preview 3 and updates the issue with this information
-- 25 June 2017: Mark Murphy points out on the issue that it is over the 90 responsible disclosure threshold and wonders if anyone at Google is looking at this issue
+- 25 June 2017: Mark Murphy points out on the issue that it is over the 90-day responsible disclosure threshold and wonders if anyone at Google is looking at this issue
 - 27 June 2017: Google responds with "we're looking at it"
 - 30 June 2017: Google responds with the first bits of information about the undocumented requirements for autofill services
 - 30 June 2017 through 31 July 2017: Mark Murphy and Google engineers discuss the problem at length on the issue, with Google providing all indications that this is working as intended, despite not officially changing the issue's status to this state
