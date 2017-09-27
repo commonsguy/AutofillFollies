@@ -95,10 +95,10 @@ for the user to confirm their postal code and have hidden widgets that collect
 other data, such as the rest of the address, credit card details, usernames/passphrases,
 etc.
 
-This flaw can be demonstrated using
+This flaw can be demonstrated using a prior version of
 [Google's own sample autofill service](https://github.com/googlesamples/android-AutofillFramework),
-though in the future that sample should be updated to show a more secure
-implementation.
+<strike>though in the future that sample should be updated to show a more secure
+implementation</strike> (**UPDATE 2017-09-27**: the sample has been updated, according to Google).
 
 A copy of the flawed autofill service sample, along with a client demonstrating
 how malicious activities can obtain data covertly from the autofill service,
@@ -121,7 +121,8 @@ There are two problems:
 
 1. At present, there is little documentation or sample code on what a well-crafted
 autofill service looks and works like, so many other developers looking to implement
-autofill services are left in the dark
+autofill services are left in the dark (**UPDATE 2017-09-27**: the documentation
+has been incrementally improved)
 
 2. Their advice will not resolve the problem completely, though it will reduce the scope
 
@@ -197,10 +198,8 @@ of the app and the public signing key of that app:
 
 > An autofill provider must verify the *package+signature* to prevent phishing - this guarantees that even if a sideloaded app uses another app’s package name and mimics its UI cannot get access to sensitive data associated with it.
 
-As of 8 August 2017, this "only give data back
-to the app that supplied it" requirement is undocumented, outside of the
-aforementioned security issue. According to the developers, it will be documented
-sometime in the future.
+See the "Package Verification" section of [the `AutofillService` JavaDocs](https://developer.android.com/reference/android/service/autofill/AutofillService.html)
+for more details.
 
 #### Hint to the User What Data Is Being Autofilled In
 
@@ -219,7 +218,8 @@ display details of exactly what data will be released. This way, for whatever
 autofill request triggered the authentication, the user will be informed about
 all fields that would be filled in... including those that the user cannot see.
 
-This requirement is also undocumented as of 8 August 2017.
+See the "User Authentication" section of [the `AutofillService` JavaDocs](https://developer.android.com/reference/android/service/autofill/AutofillService.html)
+for more details.
 
 ### What Google's Advice Does Not Solve
 
@@ -239,6 +239,10 @@ for apps for whom the form and the data come from outside the app... such as
 for Web browsers. There, the app is the *browser*, not the Web site. The autofill
 service has no obvious means of distinguishing one site from another, or even that
 there is a concept of "site" that needs to be taken into account.
+According to the "Web security" section of 
+[the `AutofillService` JavaDocs](https://developer.android.com/reference/android/service/autofill/AutofillService.html),
+autofill services can use `getWebDomain()`... but that may not be supplied by browsers
+not backed by `WebView`.
 
 Third, what the *user* considers to be sensitive data, what *Google* considers to
 be sensitive data, and what *autofill service developers* consider to be sensitive
@@ -295,14 +299,14 @@ autofill service implementation. Bear in mind that Google may be very slow in
 providing such advice.
 
 - Keep a very close eye on any reports from security analysis firms regarding
-systemic flaws in autofill, so you can address those flaws as best you can
+systemic flaws in autofill, so you can address those flaws as best you can.
 
 - If security analysis firms offer some specific testing service for autofill
-providers, take advantage of them
+providers, take advantage of them.
 
 - Consider other protocols for this sort of thing, such as
 [OpenYOLO](https://github.com/openid/OpenYOLO-Android), which may offer some
-of the same benefits for user credentials with a more focused API
+of the same benefits for user credentials with a more focused API.
 
 ## Acknowledgments
 
@@ -328,3 +332,4 @@ triggered the research in this area.
 - 30 June 2017: Google responds with the first bits of information about the undocumented requirements for autofill services
 - 30 June 2017 through 31 July 2017: Mark Murphy and Google engineers discuss the problem at length on the issue, with Google providing all indications that this is working as intended, despite not officially changing the issue's status to this state
 - 8 August 2017: Mark Murphy publishes this white paper
+- 27 September 2017: Mark Murphy updates this white paper based on a recent update to the original security issue, pointing out the newer JavaDocs and the newer sample
